@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @questions.each do |q| %>
+    
+    <p><%= q.question %></p>
+    <span class="name">
+      <%= q.choice1 %>
+    </span>
+    
+  <% end %>
+</div>

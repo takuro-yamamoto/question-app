@@ -43,7 +43,6 @@ Things you may want to cover:
 
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
-| name          | string | null: false |
 | question      | text | null: false |
 | choice_number | int    | null: false |
 | user          | references | null: false, foreign_key: true |

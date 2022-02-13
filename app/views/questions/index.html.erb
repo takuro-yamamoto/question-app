@@ -1,2 +1,10 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<div class="contents row">
+  <% @questions.each do |q| %>
+    
+    <p><%= q.question %></p>
+    <span class="name">
+      <%= q.choice1 %>
+    </span>
+    
+  <% end %>
+</div>

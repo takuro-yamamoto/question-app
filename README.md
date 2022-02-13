@@ -68,7 +68,7 @@ Things you may want to cover:
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | answer | int | null: false |
-| content | string     |                                |
+| comment | text     |                                |
 | user   | references | null: false, foreign_key: true |
 | question | references | null: false, foreign_key: true |
 

@@ -32,7 +32,7 @@ Things you may want to cover:
 | email              | string | null: false |
 | age                | int    | null: false |
 | sex                | int    | null: false |
-| prefecture         | string | null: false |
+| prefecture         | int | null: false |
 
 ### Association
 
@@ -44,7 +44,7 @@ Things you may want to cover:
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
 | name          | string | null: false |
-| question      | string | null: false |
+| question      | text | null: false |
 | choice_number | int    | null: false |
 | user          | references | null: false, foreign_key: true |
 | choice1  | string |  |

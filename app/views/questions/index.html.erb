@@ -2,9 +2,11 @@
   <% @questions.each do |q| %>
     
     <p><%= q.question %></p>
-    <span class="name">
-      <%= q.choice1 %>
-    </span>
-    
+    <% for c in 1..q.choice_number %>
+      <% a = 'choice' + c.to_s%>
+      <span class="name">
+        <%= q.send("choice#{c}") %>
+      </span>
+    <% end %>
   <% end %>
 </div>

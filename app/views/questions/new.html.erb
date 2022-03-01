@@ -1,0 +1,20 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @question, local: true) do |form| %>
+      <%= form.text_field :question, placeholder: "Question" %>
+      <%= form.number_field :choice_number, placeholder: "Question_number", min: 2, max: 10 %>
+      <%= form.text_field :choice1, placeholder: "choice1" %>
+      <%= form.text_field :choice2, placeholder: "choice2" %>
+      <%= form.text_field :choice3, placeholder: "choice3" %>
+      <%= form.text_field :choice4, placeholder: "choice4" %>
+      <%= form.text_field :choice5, placeholder: "choice5" %>
+      <%= form.text_field :choice6, placeholder: "choice6" %>
+      <%= form.text_field :choice7, placeholder: "choice7" %>
+      <%= form.text_field :choice8, placeholder: "choice8" %>
+      <%= form.text_field :choice9, placeholder: "choice9" %>
+      <%= form.text_field :choice10, placeholder: "choice10" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>

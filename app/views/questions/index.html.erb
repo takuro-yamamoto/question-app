@@ -1,12 +1,17 @@
 <div class="contents row">
-  <% @questions.each do |q| %>
-    
-    <p><%= q.question %></p>
-    <% for c in 1..q.choice_number %>
-      <% a = 'choice' + c.to_s%>
-      <span class="name">
-        <%= q.send("choice#{c}") %>
-      </span>
-    <% end %>
+  <% @questions.each do |question| %>
+    <div class="content_post">
+      <%= form_with model: [question, @answer], id: "answer_form", local: true do |f| %>
+        <p><%= question.question %></p>
+        <% for c in 1..question.choice_number %>
+          <div class="choice">
+            <%= f.label :answer, question.send("choice#{c}") %>
+            <%= f.radio_button :answer, c%>
+          </div>
+        <% end %>
+        <%= f.submit "SEND", id: "submit" %>
+        <%= link_to"集計結果を見る", question_path(question)%>
+      <% end %>
+    </div>
   <% end %>
 </div>

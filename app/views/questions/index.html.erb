@@ -3,14 +3,28 @@
     <div class="content_post">
       <%= form_with model: [question, @answer], id: "answer_form", local: true do |f| %>
         <p><%= question.question %></p>
-        <% for c in 1..question.choice_number %>
-          <div class="choice">
-            <%= f.label :answer, question.send("choice#{c}") %>
-            <%= f.radio_button :answer, c%>
-          </div>
+        <% if user_signed_in?%>
+          <% if !Answer.find_by(question_id: question.id, user_id: current_user.id) %>
+            <ul class="choice-list" >
+              <% for c in 1..question.choice_number %>
+                <li >
+                  <div class="choice">
+                  <%= f.radio_button :answer, c%>
+                  <%= f.label :answer, question.send("choice#{c}"), class: "choice_label"  %>
+                </li>
+              <% end %>
+            </ul>
+            <%= f.submit "SEND", id: "submit" %>
+          <% else %>
+            <%= link_to"集計結果を見る", question_path(question)%>
+          <% end %>
+        <% else %>
+          <% for c in 1..question.choice_number %>
+            <div class="choice">
+              <%= f.label :answer, question.send("choice#{c}"), class: "choice_label"%>
+            </div>
+          <% end %>
         <% end %>
-        <%= f.submit "SEND", id: "submit" %>
-        <%= link_to"集計結果を見る", question_path(question)%>
       <% end %>
     </div>
   <% end %>

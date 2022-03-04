@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   
   def index
-    @questions = Question.all
+    query = "SELECT * FROM questions order by id DESC"
+    @questions = Question.find_by_sql(query)
     @answer = Answer.new
   end
   
@@ -16,6 +17,11 @@ class QuestionsController < ApplicationController
   def destroy
     question = Question.find(params[:id])
     question.destroy
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    @answers = @question.answers
   end
 
   private

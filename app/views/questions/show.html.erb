@@ -1,0 +1,29 @@
+<div class="contents row">
+  <div class="content_post">
+    <div class="ub-bar-graph">
+      <p class="ub-bar-graph__title"><%= @question.question %></p>
+      <dl>
+        <% for c in 1..@question.choice_number %>
+          <div class ="ub-bar-graph-content" >
+            <p style="display: none"><%= @answers.count{|a| a.answer == c}%></p>
+            <dt id=<%=c%>>
+              <span style="display: none"><%= @answers.count{|a| a.answer == c}%></span>
+              <span class="ub-bar-graph__content"><%= @question.send("choice#{c}") %></span>
+            </dt>  
+            <dd>
+              <span class="ub-bar-graph__value"><%= @answers.count{|a| a.answer == c}%>人</span>
+            </dd>
+          </div>
+        <% end %>
+        <p class="graph_total" style="display: none"><%= @answers.count%></p>
+        <span class="ub-bar-graph-answer-total">回答数: <%= @answers.count%>人 </span>
+      </dl>
+    </div>
+    <a>
+      <span>作成者: <%= @question.user.name %></span>
+    </a>
+  </div>
+  <div class="success">
+      <a class="btn" href="/">一覧へ戻る</a>
+    </div>
+</div>
